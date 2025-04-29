@@ -1,14 +1,439 @@
-<div class="ad-space">
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXXXXXX"
-         crossorigin="anonymous"></script>
-    <!-- Your ad unit -->
-    <ins class="adsbygoogle"
-         style="display:block"
-         data-ad-client="ca-pub-XXXXXXXXXXXXXXXX"
-         data-ad-slot="XXXXXXXXXX"
-         data-ad-format="auto"
-         data-full-width-responsive="true"></ins>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ZIPPRO - Your Complete ZIP Code Information Tool</title>
+    <style>
+        :root {
+            --primary-color: #4a6bff;
+            --secondary-color: #f5f7ff;
+            --accent-color: #ff6b4a;
+            --text-color: #333;
+            --light-text: #666;
+            --border-color: #ddd;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f9f9f9;
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        header {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 15px 0;
+            text-align: center;
+            border-radius: 8px 8px 0 0;
+            margin-bottom: 20px;
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+        }
+        
+        h2 {
+            font-size: 1.5rem;
+            margin: 20px 0 15px;
+            color: var(--primary-color);
+            border-bottom: 2px solid var(--border-color);
+            padding-bottom: 8px;
+        }
+        
+        h3 {
+            font-size: 1.2rem;
+            margin: 15px 0 10px;
+            color: var(--primary-color);
+        }
+        
+        .section {
+            background-color: white;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        
+        .divider {
+            height: 1px;
+            background-color: var(--border-color);
+            margin: 20px 0;
+        }
+        
+        ul {
+            list-style-type: none;
+            padding-left: 20px;
+        }
+        
+        ul li {
+            margin-bottom: 8px;
+            position: relative;
+        }
+        
+        ul li:before {
+            content: "•";
+            color: var(--primary-color);
+            font-weight: bold;
+            display: inline-block;
+            width: 1em;
+            margin-left: -1em;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+        }
+        
+        th, td {
+            padding: 12px 15px;
+            text-align: left;
+            border-bottom: 1px solid var(--border-color);
+        }
+        
+        th {
+            background-color: var(--secondary-color);
+            color: var(--primary-color);
+            font-weight: 600;
+        }
+        
+        tr:hover {
+            background-color: var(--secondary-color);
+        }
+        
+        .rating {
+            color: var(--accent-color);
+            font-weight: bold;
+        }
+        
+        .button {
+            display: inline-block;
+            background-color: var(--primary-color);
+            color: white;
+            padding: 8px 16px;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .button:hover {
+            background-color: #3a5bef;
+            transform: translateY(-1px);
+        }
+        
+        .button.secondary {
+            background-color: var(--secondary-color);
+            color: var(--primary-color);
+        }
+        
+        .button.danger {
+            background-color: #ff4a4a;
+        }
+        
+        .button.danger:hover {
+            background-color: #e03a3a;
+        }
+        
+        .flex-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        
+        .flex-item {
+            flex: 1;
+            min-width: 250px;
+        }
+        
+        .search-box {
+            display: flex;
+            margin: 20px 0;
+        }
+        
+        .search-box input {
+            flex: 1;
+            padding: 12px 15px;
+            border: 1px solid var(--border-color);
+            border-radius: 4px 0 0 4px;
+            font-size: 1rem;
+        }
+        
+        .search-box button {
+            padding: 0 20px;
+            border-radius: 0 4px 4px 0;
+        }
+        
+        .ad-space {
+            background-color: var(--secondary-color);
+            border: 1px dashed var(--border-color);
+            padding: 30px;
+            text-align: center;
+            margin: 20px 0;
+            border-radius: 8px;
+        }
+        
+        .tag {
+            display: inline-block;
+            background-color: var(--secondary-color);
+            color: var(--primary-color);
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            margin-right: 5px;
+            margin-bottom: 5px;
+        }
+        
+        @media (max-width: 768px) {
+            .flex-container {
+                flex-direction: column;
+            }
+            
+            .flex-item {
+                min-width: 100%;
+            }
+            
+            th, td {
+                padding: 8px 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>ZIPPRO</h1>
+        </header>
+        
+        <!-- Ad Space -->
+        <div class="ad-space">
+            <p>Advertisement Space</p>
+            <!-- You can place your ad code here -->
+        </div>
+        
+        <!-- Search Box -->
+        <div class="search-box">
+            <input type="text" placeholder="Enter ZIP code or city name..." id="zipSearch">
+            <button class="button" onclick="searchZip()">Search</button>
+        </div>
+        
+        <!-- Education Insights -->
+        <div class="section">
+            <h2>Education Insights</h2>
+            <ul>
+                <li>School Ratings, Colleges</li>
+                <li>School District Map</li>
+            </ul>
+        </div>
+        
+        <!-- Ad Space -->
+        <div class="ad-space">
+            <p>Advertisement Space</p>
+        </div>
+        
+        <!-- Demographics & Neighborhood Vibes -->
+        <div class="section">
+            <h2>Demographics & Neighborhood Vibes</h2>
+            <div class="flex-container">
+                <div class="flex-item">
+                    <h3>Population</h3>
+                    <p><strong>44.44k</strong></p>
+                </div>
+                <div class="flex-item">
+                    <h3>Neighborhood Features</h3>
+                    <div>
+                        <span class="tag">Walkability</span>
+                        <span class="tag">Pet Friendly</span>
+                        <span class="tag">Parks</span>
+                        <span class="tag">Cafes</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Weather & Climate -->
+        <div class="section">
+            <h2>Weather & Climate</h2>
+            <ul>
+                <li><strong>Average Temp:</strong> 72°F</li>
+                <li><strong>Precipitation:</strong> 45 inches/year</li>
+            </ul>
+        </div>
+        
+        <!-- Business Directory -->
+        <div class="section">
+            <h2>Business Directory</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Restaurants</th>
+                        <th>Hospitals</th>
+                        <th>Stores</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Joe's Diner <span class="rating">★ 7.5</span></td>
+                        <td>City Hospital <span class="rating">★ 8.7</span></td>
+                        <td>Main Street Market <span class="rating">★ 8.0</span></td>
+                    </tr>
+                    <tr>
+                        <td>Pizza Palace <span class="rating">★ 8.2</span></td>
+                        <td>Community Medical <span class="rating">★ 7.9</span></td>
+                        <td>Downtown Mall <span class="rating">★ 7.8</span></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        
+        <!-- Ad Space -->
+        <div class="ad-space">
+            <p>Advertisement Space</p>
+        </div>
+        
+        <!-- Virtual Tour & Saved ZIPs -->
+        <div class="flex-container">
+            <div class="flex-item section">
+                <h2>Virtual Tour</h2>
+                <button class="button">Launch Virtual Tour</button>
+            </div>
+            <div class="flex-item section">
+                <h2>Saved ZIPs</h2>
+                <table>
+                    <tbody>
+                        <tr>
+                            <td>12345</td>
+                            <td><button class="button secondary">View</button></td>
+                            <td><button class="button danger">Remove</button></td>
+                        </tr>
+                        <tr>
+                            <td>98765</td>
+                            <td><button class="button secondary">View</button></td>
+                            <td><button class="button danger">Remove</button></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        
+        <!-- Transportation -->
+        <div class="section">
+            <h2>Transportation</h2>
+            <div class="flex-container">
+                <div class="flex-item">
+                    <h3>Directions</h3>
+                    <p>Google Maps Directions API</p>
+                    <button class="button">Get Directions</button>
+                </div>
+                <div class="flex-item">
+                    <h3>Property Information</h3>
+                    <div>
+                        <button class="button secondary">Property Tax Info</button>
+                        <button class="button">Buy</button>
+                        <button class="button">Rent</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- AI Assistant -->
+        <div class="section">
+            <h2>AI Assistant</h2>
+            <div class="flex-container">
+                <div class="flex-item">
+                    <input type="text" placeholder="Ask me about ZIP codes..." id="aiQuestion" style="width: 100%; padding: 10px;">
+                    <button class="button" onclick="askAI()" style="margin-top: 10px;">Ask</button>
+                </div>
+                <div class="flex-item">
+                    <div id="aiResponse" style="background-color: var(--secondary-color); padding: 15px; border-radius: 8px;">
+                        <p><strong>Try asking:</strong> "Suggest me affordable areas"</p>
+                    </div>
+                </div>
+            </div>
+            <div style="margin-top: 20px;">
+                <h3>Suggested ZIP Codes</h3>
+                <div>
+                    <span class="tag" onclick="searchSuggested('54321')">54321</span>
+                    <span class="tag" onclick="searchSuggested('67890')">67890</span>
+                    <span class="tag" onclick="searchSuggested('12345')">12345</span>
+                    <span class="tag" onclick="searchSuggested('98765')">98765</span>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Ad Space -->
+        <div class="ad-space">
+            <p>Advertisement Space</p>
+        </div>
+    </div>
+    
     <script>
-         (adsbygoogle = window.adsbygoogle || []).push({});
+        function searchZip() {
+            const zipCode = document.getElementById('zipSearch').value;
+            if (zipCode) {
+                alert(`Searching for ZIP code: ${zipCode}`);
+                // Here you would typically make an API call or load data for the ZIP code
+            } else {
+                alert('Please enter a ZIP code or city name');
+            }
+        }
+        
+        function askAI() {
+            const question = document.getElementById('aiQuestion').value;
+            const responseBox = document.getElementById('aiResponse');
+            
+            if (question.toLowerCase().includes('affordable')) {
+                responseBox.innerHTML = `
+                    <p><strong>Here are some affordable ZIP codes:</strong></p>
+                    <p>• 54321 - Average home price: $250k</p>
+                    <p>• 67890 - Average home price: $275k</p>
+                    <p>• 12345 - Average home price: $230k</p>
+                `;
+            } else if (question) {
+                responseBox.innerHTML = `<p>For ZIP code information about "${question}", our system would typically provide detailed insights here.</p>`;
+            } else {
+                responseBox.innerHTML = `<p>Please ask a question about ZIP codes or neighborhoods.</p>`;
+            }
+        }
+        
+        function searchSuggested(zip) {
+            document.getElementById('zipSearch').value = zip;
+            searchZip();
+        }
+        
+        // Sample functionality for buttons
+        document.querySelectorAll('.button.danger').forEach(button => {
+            button.addEventListener('click', function() {
+                const row = this.closest('tr');
+                if (confirm('Remove this saved ZIP code?')) {
+                    row.remove();
+                }
+            });
+        });
+        
+        document.querySelectorAll('.button.secondary').forEach(button => {
+            button.addEventListener('click', function() {
+                const zip = this.closest('tr').querySelector('td').textContent;
+                alert(`Viewing details for ZIP code: ${zip}`);
+            });
+        });
     </script>
-</div>
+</body>
+</html>
