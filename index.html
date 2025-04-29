@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ZIPPRO - Your Complete ZIP Code Information Tool</title>
+    <title>ZIPPRO - AI-Powered ZIP Code Information</title>
     <style>
         :root {
             --primary-color: #4a6bff;
@@ -201,6 +201,28 @@
             margin-bottom: 5px;
         }
         
+        .ai-response {
+            background-color: #f8f9fa;
+            border-left: 4px solid var(--primary-color);
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 0 8px 8px 0;
+        }
+        
+        .loading {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border: 3px solid rgba(0,0,0,.1);
+            border-radius: 50%;
+            border-top-color: var(--primary-color);
+            animation: spin 1s ease-in-out infinite;
+        }
+        
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+        
         @media (max-width: 768px) {
             .flex-container {
                 flex-direction: column;
@@ -220,13 +242,8 @@
     <div class="container">
         <header>
             <h1>ZIPPRO</h1>
+            <p>AI-Powered ZIP Code Information</p>
         </header>
-        
-        <!-- Ad Space -->
-        <div class="ad-space">
-            <p>Advertisement Space</p>
-            <!-- You can place your ad code here -->
-        </div>
         
         <!-- Search Box -->
         <div class="search-box">
@@ -234,206 +251,157 @@
             <button class="button" onclick="searchZip()">Search</button>
         </div>
         
-        <!-- Education Insights -->
-        <div class="section">
-            <h2>Education Insights</h2>
-            <ul>
-                <li>School Ratings, Colleges</li>
-                <li>School District Map</li>
-            </ul>
-        </div>
-        
-        <!-- Ad Space -->
-        <div class="ad-space">
-            <p>Advertisement Space</p>
-        </div>
-        
-        <!-- Demographics & Neighborhood Vibes -->
-        <div class="section">
-            <h2>Demographics & Neighborhood Vibes</h2>
-            <div class="flex-container">
-                <div class="flex-item">
-                    <h3>Population</h3>
-                    <p><strong>44.44k</strong></p>
-                </div>
-                <div class="flex-item">
-                    <h3>Neighborhood Features</h3>
-                    <div>
-                        <span class="tag">Walkability</span>
-                        <span class="tag">Pet Friendly</span>
-                        <span class="tag">Parks</span>
-                        <span class="tag">Cafes</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-        
-        <!-- Weather & Climate -->
-        <div class="section">
-            <h2>Weather & Climate</h2>
-            <ul>
-                <li><strong>Average Temp:</strong> 72°F</li>
-                <li><strong>Precipitation:</strong> 45 inches/year</li>
-            </ul>
-        </div>
-        
-        <!-- Business Directory -->
-        <div class="section">
-            <h2>Business Directory</h2>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Restaurants</th>
-                        <th>Hospitals</th>
-                        <th>Stores</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>Joe's Diner <span class="rating">★ 7.5</span></td>
-                        <td>City Hospital <span class="rating">★ 8.7</span></td>
-                        <td>Main Street Market <span class="rating">★ 8.0</span></td>
-                    </tr>
-                    <tr>
-                        <td>Pizza Palace <span class="rating">★ 8.2</span></td>
-                        <td>Community Medical <span class="rating">★ 7.9</span></td>
-                        <td>Downtown Mall <span class="rating">★ 7.8</span></td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-        
-        <!-- Ad Space -->
-        <div class="ad-space">
-            <p>Advertisement Space</p>
-        </div>
-        
-        <!-- Virtual Tour & Saved ZIPs -->
-        <div class="flex-container">
-            <div class="flex-item section">
-                <h2>Virtual Tour</h2>
-                <button class="button">Launch Virtual Tour</button>
-            </div>
-            <div class="flex-item section">
-                <h2>Saved ZIPs</h2>
-                <table>
-                    <tbody>
-                        <tr>
-                            <td>12345</td>
-                            <td><button class="button secondary">View</button></td>
-                            <td><button class="button danger">Remove</button></td>
-                        </tr>
-                        <tr>
-                            <td>98765</td>
-                            <td><button class="button secondary">View</button></td>
-                            <td><button class="button danger">Remove</button></td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </div>
-        
-        <!-- Transportation -->
-        <div class="section">
-            <h2>Transportation</h2>
-            <div class="flex-container">
-                <div class="flex-item">
-                    <h3>Directions</h3>
-                    <p>Google Maps Directions API</p>
-                    <button class="button">Get Directions</button>
-                </div>
-                <div class="flex-item">
-                    <h3>Property Information</h3>
-                    <div>
-                        <button class="button secondary">Property Tax Info</button>
-                        <button class="button">Buy</button>
-                        <button class="button">Rent</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-        
-        <!-- AI Assistant -->
+        <!-- AI Assistant Section -->
         <div class="section">
             <h2>AI Assistant</h2>
             <div class="flex-container">
                 <div class="flex-item">
-                    <input type="text" placeholder="Ask me about ZIP codes..." id="aiQuestion" style="width: 100%; padding: 10px;">
+                    <input type="text" placeholder="Ask me anything about ZIP codes..." id="aiQuestion" style="width: 100%; padding: 10px;">
                     <button class="button" onclick="askAI()" style="margin-top: 10px;">Ask</button>
                 </div>
-                <div class="flex-item">
-                    <div id="aiResponse" style="background-color: var(--secondary-color); padding: 15px; border-radius: 8px;">
-                        <p><strong>Try asking:</strong> "Suggest me affordable areas"</p>
-                    </div>
-                </div>
             </div>
-            <div style="margin-top: 20px;">
-                <h3>Suggested ZIP Codes</h3>
-                <div>
-                    <span class="tag" onclick="searchSuggested('54321')">54321</span>
-                    <span class="tag" onclick="searchSuggested('67890')">67890</span>
-                    <span class="tag" onclick="searchSuggested('12345')">12345</span>
-                    <span class="tag" onclick="searchSuggested('98765')">98765</span>
-                </div>
+            <div id="aiResponse" class="ai-response">
+                <p>Hello! I'm your ZIP code assistant. Ask me about:</p>
+                <ul>
+                    <li>Demographics of any area</li>
+                    <li>School ratings</li>
+                    <li>Housing prices</li>
+                    <li>Local amenities</li>
+                </ul>
             </div>
         </div>
         
-        <!-- Ad Space -->
-        <div class="ad-space">
-            <p>Advertisement Space</p>
+        <!-- Information Sections (will be populated by AI) -->
+        <div id="educationSection" class="section">
+            <h2>Education Insights</h2>
+            <div id="educationContent"></div>
         </div>
-    </div>
-    
-    <script>
-        function searchZip() {
-            const zipCode = document.getElementById('zipSearch').value;
-            if (zipCode) {
-                alert(`Searching for ZIP code: ${zipCode}`);
-                // Here you would typically make an API call or load data for the ZIP code
-            } else {
-                alert('Please enter a ZIP code or city name');
-            }
-        }
         
-        function askAI() {
-            const question = document.getElementById('aiQuestion').value;
-            const responseBox = document.getElementById('aiResponse');
+        <div id="demographicsSection" class="section">
+            <h2>Demographics & Neighborhood</h2>
+            <div id="demographicsContent"></div>
+        </div>
+        
+        <div id="businessSection" class="section">
+            <h2>Business Directory</h2>
+            <div id="businessContent"></div>
+        </div>
+
+        <script>
+            // Replace with your actual OpenAI API key
+            const OPENAI_API_KEY = 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; 
             
-            if (question.toLowerCase().includes('affordable')) {
-                responseBox.innerHTML = `
-                    <p><strong>Here are some affordable ZIP codes:</strong></p>
-                    <p>• 54321 - Average home price: $250k</p>
-                    <p>• 67890 - Average home price: $275k</p>
-                    <p>• 12345 - Average home price: $230k</p>
-                `;
-            } else if (question) {
-                responseBox.innerHTML = `<p>For ZIP code information about "${question}", our system would typically provide detailed insights here.</p>`;
-            } else {
-                responseBox.innerHTML = `<p>Please ask a question about ZIP codes or neighborhoods.</p>`;
-            }
-        }
-        
-        function searchSuggested(zip) {
-            document.getElementById('zipSearch').value = zip;
-            searchZip();
-        }
-        
-        // Sample functionality for buttons
-        document.querySelectorAll('.button.danger').forEach(button => {
-            button.addEventListener('click', function() {
-                const row = this.closest('tr');
-                if (confirm('Remove this saved ZIP code?')) {
-                    row.remove();
+            async function askAI() {
+                const question = document.getElementById('aiQuestion').value.trim();
+                const responseBox = document.getElementById('aiResponse');
+                
+                if (!question) {
+                    alert("Please enter a question");
+                    return;
                 }
-            });
-        });
-        
-        document.querySelectorAll('.button.secondary').forEach(button => {
-            button.addEventListener('click', function() {
-                const zip = this.closest('tr').querySelector('td').textContent;
-                alert(`Viewing details for ZIP code: ${zip}`);
-            });
-        });
-    </script>
+                
+                // Show loading indicator
+                responseBox.innerHTML = '<div class="loading"></div> Searching for information...';
+                
+                try {
+                    const response = await fetch("https://api.openai.com/v1/chat/completions", {
+                        method: "POST",
+                        headers: {
+                            "Content-Type": "application/json",
+                            "Authorization": `Bearer ${OPENAI_API_KEY}`
+                        },
+                        body: JSON.stringify({
+                            model: "gpt-3.5-turbo",
+                            messages: [
+                                {
+                                    role: "system",
+                                    content: "You are a helpful ZIP code information assistant. Provide detailed information about demographics, schools, businesses, and local amenities for any US ZIP code. Format responses with clear sections and bullet points."
+                                },
+                                {
+                                    role: "user",
+                                    content: question
+                                }
+                            ],
+                            temperature: 0.7
+                        })
+                    });
+                    
+                    const data = await response.json();
+                    const aiResponse = data.choices[0].message.content;
+                    
+                    // Display the response
+                    responseBox.innerHTML = `<p>${aiResponse.replace(/\n/g, '<br>')}</p>`;
+                    
+                    // Extract and populate specific sections if ZIP code is detected
+                    if (question.match(/\b\d{5}\b/)) {
+                        const zipCode = question.match(/\b\d{5}\b/)[0];
+                        populateSections(zipCode);
+                    }
+                    
+                } catch (error) {
+                    console.error("Error calling OpenAI API:", error);
+                    responseBox.innerHTML = `<p>Sorry, I couldn't process your request. Please try again later.</p>`;
+                }
+            }
+            
+            async function populateSections(zipCode) {
+                // You can customize these prompts for each section
+                const sectionPrompts = {
+                    education: `Provide detailed education information for ZIP code ${zipCode} including school ratings, colleges, and school district boundaries. Use bullet points.`,
+                    demographics: `Provide detailed demographic information for ZIP code ${zipCode} including population, age distribution, income levels, and neighborhood characteristics. Use bullet points.`,
+                    business: `List notable businesses, restaurants, hospitals, and stores in ZIP code ${zipCode} with brief descriptions. Format as a table if possible.`
+                };
+                
+                // Process each section
+                for (const [section, prompt] of Object.entries(sectionPrompts)) {
+                    try {
+                        const response = await fetch("https://api.openai.com/v1/chat/completions", {
+                            method: "POST",
+                            headers: {
+                                "Content-Type": "application/json",
+                                "Authorization": `Bearer ${OPENAI_API_KEY}`
+                            },
+                            body: JSON.stringify({
+                                model: "gpt-3.5-turbo",
+                                messages: [
+                                    {
+                                        role: "system",
+                                        content: "You are a helpful ZIP code information assistant. Provide detailed information in clear, formatted responses."
+                                    },
+                                    {
+                                        role: "user",
+                                        content: prompt
+                                    }
+                                ],
+                                temperature: 0.7
+                            })
+                        });
+                        
+                        const data = await response.json();
+                        const content = data.choices[0].message.content;
+                        
+                        // Update the corresponding section
+                        document.getElementById(`${section}Content`).innerHTML = 
+                            `<p>${content.replace(/\n/g, '<br>')}</p>`;
+                            
+                    } catch (error) {
+                        console.error(`Error processing ${section} section:`, error);
+                        document.getElementById(`${section}Content`).innerHTML = 
+                            `<p>Information not available at this time.</p>`;
+                    }
+                }
+            }
+            
+            function searchZip() {
+                const zipCode = document.getElementById('zipSearch').value.trim();
+                if (zipCode.match(/^\d{5}$/)) {
+                    document.getElementById('aiQuestion').value = `Tell me all about ZIP code ${zipCode}`;
+                    askAI();
+                } else {
+                    alert("Please enter a valid 5-digit ZIP code");
+                }
+            }
+        </script>
+    </div>
 </body>
 </html>
